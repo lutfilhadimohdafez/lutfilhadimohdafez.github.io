@@ -1,0 +1,38 @@
+video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  body {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    text-align: center;
+  }
+  h1 {
+    position: relative;
+    color: white;
+  }
+  .headline {
+    width: 100%;
+    font: 8vw system-ui, sans-serif;
+    font-weight: 900;
+    height: 150px;
+  }
+  @supports (backdrop-filter: blur(12px)) {
+    .visually-hidden {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    h1 {
+      backdrop-filter: blur(12px);
+      background: rgba(white, 0.2);
+      clip-path: url(#lockup-headline-mask-path);
+    }
+  }
