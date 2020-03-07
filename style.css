@@ -6,6 +6,13 @@
   line-height: 1.5;
   max-width: 50%;
   padding: 1rem 2rem;
+  text-decoration: none;
+  transition: 0.5s ease-in-out;
+}
+
+.modal:hover{
+  background-color: #FFC107;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.8);
 }
 
 
