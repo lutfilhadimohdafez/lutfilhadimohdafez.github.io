@@ -12,6 +12,7 @@ class Calculator{
     }
 
     delete(){
+        this.currentOperand = this.currentOperand.toString().slice(0, -1)
 
     }
 
@@ -40,11 +41,23 @@ class Calculator{
             case '+':
                 computation = prev+current
                 break
-            case '+':
-                computation = prev+current
-                break       
+            case '-':
+                computation = prev-current
+                break   
+            case '*':
+                computation = prev*current
+                break   
+            case '/':
+                computation = prev/current
+                break
+            default:
+                return       
+                
             
         }
+        this.currentOperand= computation
+        this.operation = undefined
+        this.previousOperand = ''
 
     }
 
@@ -59,7 +72,7 @@ const numberButtons = document.querySelectorAll('[data-number]')
 const operationButtons = document.querySelectorAll('[data-operation')
 const equalsButton = document.querySelector('[data-equals')
 const allClearButton = document.querySelector('[data-all-clear')
-const deletButton = document.querySelector('[data-delete')
+const deleteButton = document.querySelector('[data-delete')
 const previousOperandTextElement = document.querySelector('[data-previous-operand')
 const currentOperandTextElement = document.querySelector('[data-current-operand')
 
@@ -81,5 +94,15 @@ operationButtons.forEach(button => {
 
 equalsButton.addEventListener('click', button =>{
     calculator.compute()
+    calculator.updateDisplay()
+})
+
+allClearButton.addEventListener('click',button=>{
+    calculator.clear()
+    calculator.updateDisplay()
+})
+
+deleteButton.addEventListener('click',button=>{
+    calculator.delete()
     calculator.updateDisplay()
 })
